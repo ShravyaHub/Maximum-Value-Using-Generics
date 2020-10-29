@@ -1,9 +1,25 @@
 package com.bridgelabz;
 
-public class MaximumValueTest {
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
-    public int maximumValue(Integer value1, Integer value2, Integer value3) {
-        int maximumValue = value1;
+public class MaximumValueTest<E extends Comparable<E>> {
+
+    E value1 , value2 , value3 ;
+
+    public MaximumValueTest(E value1, E value2, E value3) {
+        this.value1 = value1;
+        this.value2 = value2;
+        this.value3 = value3;
+    }
+    public E testMaximum()
+    {
+        return (E) MaximumValueTest.maximumValue(value1, value2, value3);
+    }
+
+    public static <E extends Comparable<E>> E maximumValue(E value1, E value2, E value3) {
+        E maximumValue = value1;
         if(value2.compareTo(maximumValue) > 0) {
             maximumValue = value2;
         }
@@ -13,26 +29,9 @@ public class MaximumValueTest {
         return maximumValue;
     }
 
-    public double maximumValue(Double value1, Double value2, Double value3) {
-        double maximumValue = value1;
-        if(value2.compareTo(maximumValue) > 0) {
-            maximumValue = value2;
-        }
-        if((value3).compareTo(maximumValue) > 0) {
-            maximumValue = value3;
-        }
-        return maximumValue;
-    }
-
-    public String maximumValue(String  value1, String  value2, String  value3) {
-        String  maximumValue = value1;
-        if(value2.compareTo(maximumValue) > 0) {
-            maximumValue = value2;
-        }
-        if(value3.compareTo(maximumValue) > 0) {
-            maximumValue = value3;
-        }
-        return maximumValue;
+    public static <E extends Comparable<E>> E maximumForMoreThanThreeValues(E... values) {
+        Arrays.sort(values);
+        return values[values.length-1];
     }
 
 }
