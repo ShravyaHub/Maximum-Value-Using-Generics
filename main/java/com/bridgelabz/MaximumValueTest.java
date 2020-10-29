@@ -1,8 +1,6 @@
 package com.bridgelabz;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 public class MaximumValueTest<E extends Comparable<E>> {
 
@@ -31,7 +29,19 @@ public class MaximumValueTest<E extends Comparable<E>> {
 
     public static <E extends Comparable<E>> E maximumForMoreThanThreeValues(E... values) {
         Arrays.sort(values);
+        printMax(values[values.length-1]);
         return values[values.length-1];
+    }
+
+    public static < E > void printMax(E max)
+    {
+        System.out.println("maximum value is " + max);
+    }
+
+    public static void main(String[] args) {
+        maximumForMoreThanThreeValues(12, 2, 34, 21);
+        maximumForMoreThanThreeValues(4f, 3f, 7f, 5f);
+        maximumForMoreThanThreeValues("Yellow", "Blue", "Red", "Purple");
     }
 
 }
