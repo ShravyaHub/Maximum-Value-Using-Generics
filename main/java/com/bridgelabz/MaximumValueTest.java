@@ -11,9 +11,12 @@ public class MaximumValueTest<E extends Comparable<E>> {
         this.value2 = value2;
         this.value3 = value3;
     }
+
+    public MaximumValueTest() {}
+
     public E testMaximum()
     {
-        return (E) MaximumValueTest.maximumValue(value1, value2, value3);
+        return MaximumValueTest.maximumValue(value1, value2, value3);
     }
 
     public static <E extends Comparable<E>> E maximumValue(E value1, E value2, E value3) {
@@ -24,24 +27,19 @@ public class MaximumValueTest<E extends Comparable<E>> {
         if((value3).compareTo(maximumValue) > 0) {
             maximumValue = value3;
         }
+        printMax(maximumValue);
         return maximumValue;
     }
 
-    public static <E extends Comparable<E>> E maximumForMoreThanThreeValues(E... values) {
+    public  <E extends Comparable<E>> E max(E... values) {
         Arrays.sort(values);
         printMax(values[values.length-1]);
         return values[values.length-1];
     }
 
-    public static < E > void printMax(E max)
+    public static <E> void printMax(E max)
     {
-        System.out.println("maximum value is " + max);
-    }
-
-    public static void main(String[] args) {
-        maximumForMoreThanThreeValues(12, 2, 34, 21);
-        maximumForMoreThanThreeValues(4f, 3f, 7f, 5f);
-        maximumForMoreThanThreeValues("Yellow", "Blue", "Red", "Purple");
+        System.out.println("Maximum value is " + max);
     }
 
 }
