@@ -13,4 +13,15 @@ public class MaximumValueTest {
         return maximumValue;
     }
 
+    public double maximumNumber(Double value1, Double value2, Double value3) {
+        double maximumValue = value1;
+        if(value2.compareTo(maximumValue) > 0) {
+            maximumValue = value2;
+        }
+        if((value3).compareTo(maximumValue) > 0) {
+            maximumValue = value3;
+        }
+        return maximumValue;
+    }
+
 }
